@@ -93,6 +93,10 @@ and restart Atom.  If Atom now works fine, you can make this setting permanent:
   ```sh
   echo 32768 | sudo tee -a /proc/sys/fs/inotify/max_user_watches
   ```
+It looks like the permanent solution is not working on arch linux, but the following is working fine.
+```sh
+sudo echo 'fs.inotify.max_user_watches=32768' >> /usr/lib/sysctl.d/50-default.conf
+```
 
 See also [#2082](https://github.com/atom/atom/issues/2082).
 
